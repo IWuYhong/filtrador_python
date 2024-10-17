@@ -2,8 +2,8 @@
 
 ## Este script automatiza la exportación de datos a Excel, filtrando por provincia.
 
-- Flexibilidad: Modifica fácilmente la provincia en el código.
-- Organización: Genera archivos Excel separados cada 10,000 registros.
+- Flexibilidad: Modifica fácilmente la provincia en el código. La Variable es: nombre_columna = 'Venezuela'
+- Organización: Genera archivos Excel separados cada 10,000 registros (Elegible) con la Variable filas_por_archivo = 10.
 - Completitud: Crea un archivo adicional con registros incompletos.
 
 ## Ideal para:
