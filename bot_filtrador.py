@@ -21,16 +21,24 @@ ruta_excel = 'datos_aleatorios.xlsx'
 # Leer el archivo Excel, convirtiendo valores vacíos en cadenas vacías
 df = pd.read_excel(ruta_excel, na_filter=False) 
 
-# Obtener el nombre de la columna de pais directamente desde la celda J1
-columna_pais = df.columns[9]  # Asumiendo que "J" es la décima columna (índice 9)
 
-# Limpiar el nombre de la columna, eliminando espacios y caracteres especiales
-# Usamos re.sub() para reemplazar caracteres no deseados de manera compatible con todas las versiones de Python
-columna_pais = columna_pais.strip().replace(' ', '_')
-columna_pais = re.sub('[^a-zA-Z0-9_]', '', columna_pais)
+# Configuración
+
 
 # Filtrar el DataFrame para incluir solo las filas donde la columna de pais es "Venezuela"
 nombre_columna = 'Venezuela'
+# Número de filas por archivo, aca estableces la cantidad que desees organizar.
+filas_por_archivo = 10
+# Iniciando desde la Columna A que equivale al indice [0], en este caso es la J
+x = 9
+
+# Limpiar el nombre de la columna, eliminando espacios y caracteres especiales
+# Usamos re.sub() para reemplazar caracteres no deseados de manera compatible con todas las versiones de Python
+# Obtener el nombre de la columna de pais directamente desde la celda J1
+columna_pais = df.columns[x]  # Asumiendo que "J" es la décima columna (índice 9)
+columna_pais = columna_pais.strip().replace(' ', '_')
+columna_pais = re.sub('[^a-zA-Z0-9_]', '', columna_pais)
+
 # y crear un DataFrame aparte para las filas con valores vacíos en esa columna
 df_filtrado = df[df[columna_pais].astype(str) == nombre_columna]
 df_vacios = df[df[columna_pais].astype(str) == ''] 
@@ -41,9 +49,6 @@ ruta_escritorio = os.path.join(os.path.expanduser("~"), "Desktop")
 # Crear la carpeta 've' si no existe
 ruta_carpeta_ve = os.path.join(ruta_escritorio, 've')
 os.makedirs(ruta_carpeta_ve, exist_ok=True)
-
-# Número de filas por archivo, aca estableces la cantidad que desees organizar.
-filas_por_archivo = 10
 
 # Dividir el DataFrame filtrado en trozos y guardarlos en archivos Excel
 for i in range(0, len(df_filtrado), filas_por_archivo):
