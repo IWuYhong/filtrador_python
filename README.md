@@ -1,14 +1,14 @@
 # Bot de Exportación Personalizado en Python
-Este script automatiza la exportación de datos a Excel, filtrando por provincia.
+Este script automatiza la exportación de datos a Excel, filtrando por provincia o solo diviendo si es necesario.
+
+Teniendo en cuenta una variable asignada para el Libro excel.
+ruta_excel = 'datos_aleatorios.xlsx'
+df = pd.read_excel(ruta_excel, na_filter=False)
 
 ## Flexibilidad: Modifica fácilmente la provincia en el código.
-- La Variable es: nombre_columna = 'Venezuela'
-## Organización: Genera archivos Excel separados cada 10,000 registros (Elegible) 
-- La Variable filas_por_archivo = 10.
-## Completitud: Crea un archivo adicional con registros incompletos.
-
+- filtrador(df, columna_pais, nombre_columna, filas_por_archivo)
+- rangos(df, 10000)
 ## Ideal para:
-
 - Analistas de datos
 - Automatización de tareas repetitivas
 
@@ -20,6 +20,8 @@ Este script automatiza la exportación de datos a Excel, filtrando por provincia
 ## Bot de Exportación Personalizado en Python: Automatiza y Organiza Tus Datos
 
 Este script de Python está diseñado para simplificar y agilizar el proceso de exportación de datos a Excel. Al especificar la provincia de interés, el bot filtrará los datos y generará múltiples archivos Excel, cada uno conteniendo un máximo de 10,000 registros. Esta segmentación facilita la gestión y el análisis de grandes conjuntos de datos.
+
+El Divisor de rangos, solo exporta en cantidades de 10.000 en 10.000 lo puedes cambiar si es necesario. y su exportacion lo hace en extensión .CSV
 
 ## Tecnologías utilizadas:
 
