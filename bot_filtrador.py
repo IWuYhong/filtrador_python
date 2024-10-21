@@ -61,7 +61,7 @@ def rangos(df, filas_por_archivo):
         df.iloc[inicio:fin].to_csv(ruta_archivo, index=False, sep=';')
 
 # Ejemplo de uso
-ruta_excel = 'base_filtrada.xlsx'
+ruta_excel = 'datos_aleatorios.xlsx'
 df = pd.read_excel(ruta_excel, na_filter=False)
 
 # Filtrar por país
