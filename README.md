@@ -2,8 +2,8 @@
 Este script automatiza la exportación de datos a Excel, filtrando por provincia o solo diviendo si es necesario.
 
 Teniendo en cuenta una variable asignada para el Libro excel.
-ruta_excel = 'datos_aleatorios.xlsx'
-df = pd.read_excel(ruta_excel, na_filter=False)
+- ruta_excel = 'datos_aleatorios.xlsx'
+- df = pd.read_excel(ruta_excel, na_filter=False)
 
 ## Flexibilidad: Modifica fácilmente la provincia en el código.
 - filtrador(df, columna_pais, nombre_columna, filas_por_archivo)
